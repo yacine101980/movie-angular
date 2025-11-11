@@ -1,0 +1,16 @@
+<h2>Mes Favoris</h2>
+
+<div *ngIf="loading">Chargement...</div>
+
+<div *ngIf="!loading && films.length === 0">
+  Aucun film ajouté aux favoris.
+</div>
+
+<ul *ngIf="!loading && films.length > 0" class="film-grid">
+  <li *ngFor="let film of films">
+    <img [src]="film.image" [alt]="film.title" />
+    <strong>{{ film.title }}</strong>
+    <p>{{ film.genre }}</p>
+    <button (click)="removeFavorite(film.id)">Retirer</button>
+  </li>
+</ul>

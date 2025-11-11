@@ -1,0 +1,57 @@
+
+<main class="reservation-page">
+
+  <div *ngIf="loadingFilm">Chargement du film…</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <section *ngIf="film" class="card">
+    <h2>Réserver : {{ film.title || film.name }}</h2>
+    <img *ngIf="film.image" [src]="film.image" [alt]="film.title || film.name" />
+
+    <form [formGroup]="form" (ngSubmit)="submit()">
+      <label>
+        Nom
+        <input formControlName="name" />
+        <small class="err" *ngIf="name?.touched && name?.invalid">
+          Nom requis (min 2 caractères).
+        </small>
+      </label>
+
+      <label>
+        Email
+        <input formControlName="email" />
+        <small class="err" *ngIf="email?.touched && email?.invalid">
+          Email invalide.
+        </small>
+      </label>
+
+      <label>
+        Nombre de places
+        <input type="number" formControlName="seats" min="1" />
+        <small class="err" *ngIf="seats?.touched && seats?.invalid">
+          Doit être ≥ 1.
+        </small>
+      </label>
+
+      <label>
+        Date / séance
+        <input type="date" formControlName="date" />
+        <small class="err" *ngIf="date?.touched && date?.invalid">
+          Date requise.
+        </small>
+      </label>
+
+      <label>
+        Téléphone (optionnel)
+        <input formControlName="phone" />
+      </label>
+
+      <div class="actions">
+        <button type="submit" [disabled]="submitting">Confirmer la réservation</button>
+        <button type="button" (click)="cancel()" [disabled]="submitting">Annuler</button>
+      </div>
+
+      <div class="success" *ngIf="success">{{ success }}</div>
+    </form>
+  </section>
+</main>

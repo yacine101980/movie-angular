@@ -1,0 +1,66 @@
+.navbar {
+  background: #121122; /* bleu nuit / gris foncé */
+  padding: 12px 24px;
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(7, 67, 147, 0.25);
+}
+
+.nav-content {
+  max-width: 1200px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.logo {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-links a,
+.nav-links button {
+  color: #d1d5db;
+  text-decoration: none;
+  font-size: 0.95rem;
+  transition: 0.25s;
+  border: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav-links a:hover,
+.nav-links button:hover {
+  color: #ffffff;
+}
+
+.active {
+  color: #60a5fa; /* bleu clair */
+  font-weight: 600;
+  border-bottom: 2px solid #60a5fa;
+  padding-bottom: 2px;
+}
+
+/* Bouton déconnexion un peu plus visuel */
+.nav-links button {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #ef4444;
+  color: white;
+  font-weight: 500;
+}
+
+.nav-links button:hover {
+  background: #dc2626;
+}
+.nav-links button:active {
+  box-shadow: 0 2px 6px rgba(220,38,38,0.3);
+}

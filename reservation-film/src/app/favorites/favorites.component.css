@@ -1,0 +1,13 @@
+.film-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(170px, 1fr));
+  gap: 1rem;
+}
+
+.film-grid li {
+  background: #fff;
+  padding: .75rem;
+  border-radius: 8px;
+  text-align: center;
+  box-shadow: 0 2px 10px rgba(0,0,0,.08);
+}

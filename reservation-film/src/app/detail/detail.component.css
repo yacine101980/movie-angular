@@ -1,0 +1,104 @@
+:root{
+  --bg: #f6f8fb;
+  --card: #fff;
+  --accent: #0b5ed7;
+  --muted: #6b7280;
+  --danger: #9b1c1c;
+}
+
+.detail-page{
+  min-height: 70vh;
+  background: var(--bg);
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 2rem 1rem;
+  box-sizing: border-box;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+  color: #111827;
+}
+
+.detail-page > button{
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background: transparent;
+  border: none;
+  color: var(--accent);
+  font-weight: 600;
+  cursor: pointer;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+}
+.detail-page > button:hover{
+  background: rgba(11,94,215,0.08);
+}
+
+section{
+  width: 100%;
+  max-width: 900px;
+  background: var(--card);
+  padding: 1.25rem;
+  border-radius: 10px;
+  box-shadow: 0 12px 30px rgba(2,6,23,0.06);
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+section img{
+  width: 240px;
+  height: 240px;
+  object-fit: cover;
+  border-radius: 8px;
+  flex: 0 0 240px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.06);
+}
+
+section h2{
+  margin: 0 0 0.4rem 0;
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+section .meta{
+  color: var(--muted);
+  font-size: 0.95rem;
+  margin-bottom: 0.5rem;
+}
+
+section p{
+  margin: 0.35rem 0;
+  color: #111827;
+  line-height: 1.45;
+}
+
+.error{
+  color: var(--danger);
+  background: #fff0f0;
+  border: 1px solid rgba(155,28,28,0.08);
+  padding: 0.5rem 0.75rem;
+  border-radius: 6px;
+  margin-top: 0.75rem;
+  width: 100%;
+  max-width: 900px;
+}
+
+/* responsive */
+@media (max-width:700px){
+  section{
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  section img{
+    width: 160px;
+    height: 160px;
+    flex: 0 0 160px;
+  }
+  .detail-page > button{
+    top: 0.75rem;
+    left: 0.75rem;
+  }
+}

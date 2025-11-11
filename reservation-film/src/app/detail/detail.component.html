@@ -1,0 +1,20 @@
+<main class="detail-page">
+
+  <div *ngIf="loading">Chargement...</div>
+  <div *ngIf="error" class="error">{{ error }}</div>
+
+  <section *ngIf="film">
+    <h2>{{ film.title || film.name }}</h2>
+    <img *ngIf="film.image" [src]="film.image" [alt]="film.title || film.name" />
+    <p *ngIf="film.genre"><strong>Genre :</strong> {{ film.genre }}</p>
+    <p *ngIf="film.director"><strong>Réalisateur :</strong> {{ film.director }}</p>
+    <p *ngIf="film.duration"><strong>Durée :</strong> {{ film.duration }} min</p>
+    <p *ngIf="film.releaseDate"><strong>Année :</strong> {{ film.releaseDate }}</p>
+    <p *ngIf="film.description">{{ film.description }}</p>
+  </section>
+  <div class="actions">
+    <button type="button" (click)="navigateToReservation(film.id)">
+      Réserver
+    </button>
+  </div>
+</main>

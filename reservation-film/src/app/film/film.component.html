@@ -1,0 +1,42 @@
+<main class="main">
+  <div class="content">
+    <div class="left-side">
+      <div *ngIf="loading">Chargement...</div>
+      <div *ngIf="error" class="error">{{ error }}</div>
+
+      <div class="film-grid" *ngIf="!loading && !error && filmList.length; else noFilms">
+
+        <div class="film-card" *ngFor="let film of filmList; trackBy: trackById" [class.fav]="isFavorite(film.id)">
+
+          <div class="poster" (click)="navigateToDetail(film.id)">
+            <img *ngIf="film.image" [src]="film.image" [alt]="film.title || film.name">
+          </div>
+
+          <div class="film-info">
+            <strong>{{ film.title || film.name }}</strong>
+            <p class="genre">{{ film.genre }}</p>
+          </div>
+
+          <div class="film-actions">
+            <button class="fav-btn" [class.active]="isFavorite(film.id)" (click)="toggleFavorite(film.id, $event)"
+              title="Favori">
+              <span *ngIf="isFavorite(film.id)">★</span>
+              <span *ngIf="!isFavorite(film.id)">☆</span>
+            </button>
+
+            <button class="detail-btn" (click)="navigateToDetail(film.id)">Détails</button>
+            <button class="reserve-btn" (click)="navigateToReservation(film.id)">Réserver</button>
+          </div>
+
+        </div>
+
+      </div>
+
+      <ng-template #noFilms>
+        <p>Aucun film disponible.</p>
+      </ng-template>
+    </div>
+  </div>
+</main>
+
+<router-outlet></router-outlet>

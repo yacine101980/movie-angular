@@ -1,0 +1,67 @@
+<!-- <section class="register">
+  <form class="register_form" [formGroup]="registerForm" (ngSubmit)="addUser()">
+    <h2>Inscription</h2>
+    <div class="register_form-container">
+      <input type="text" placeholder="Pseudo" class="input" formControlName="username" />
+      <input type="password" placeholder="Mot de passe" class="input" formControlName="password" />
+      <input type="password" placeholder="Confirmez le mot de passe" class="input" formControlName="confirmPassword" />
+      <p *ngIf="registerForm.invalid && (registerForm.touched || registerForm.dirty)" class="register_error">
+        {{ getErrorLabel }}
+      </p>
+    </div>
+    <button class="btn" [disabled]="registerForm.invalid">S'inscrire</button>
+  </form>
+</section> -->
+
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <h1>Inscription</h1>
+    </div>
+    <form [formGroup]="registerForm" class="auth-form" (ngSubmit)="register()">
+      <div class="form-group">
+        <label for="username">Pseudo</label>
+        <input id="username" type="text" formControlName="username">
+        <div class="error-message" *ngIf="registerForm.get('username')?.errors?.['required'] && registerForm.get('username')?.touched">
+          Le pseudo est requis
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input id="email" type="email" formControlName="email">
+        <div class="error-message" *ngIf="registerForm.get('email')?.errors?.['required'] && registerForm.get('email')?.touched">
+          L'email est requis
+        </div>
+        <div class="error-message" *ngIf="registerForm.get('email')?.errors?.['email'] && registerForm.get('email')?.touched">
+          L'email n'est pas valide
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="password">Mot de passe</label>
+        <input id="password" type="password" formControlName="password">
+        <div class="error-message" *ngIf="registerForm.get('password')?.errors?.['required'] && registerForm.get('password')?.touched">
+          Le mot de passe est requis
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="confirmPassword">Confirmez le mot de passe</label>
+        <input id="confirmPassword" type="password" formControlName="confirmPassword">
+        <div class="error-message" *ngIf="registerForm.get('confirmPassword')?.errors?.['required'] && registerForm.get('confirmPassword')?.touched">
+          La confirmation du mot de passe est requise
+        </div>
+        <div class="error-message" *ngIf="registerForm.errors?.['passwordMismatch'] && registerForm.get('confirmPassword')?.touched">
+          Les mots de passe ne correspondent pas
+        </div>
+      </div>
+      <button type="submit" class="submit-btn" [disabled]="registerForm.invalid">
+        S'inscrire
+      </button>
+    </form> 
+    <div class="auth-footer">
+      Déjà inscrit ? <a routerLink="/login">Se connecter</a>
+    </div>
+  </div>
+</div>

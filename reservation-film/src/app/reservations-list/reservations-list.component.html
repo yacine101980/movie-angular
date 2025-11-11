@@ -1,0 +1,18 @@
+<table *ngIf="reservations.length > 0">
+  <thead>
+    <tr>
+      <th>Film</th>
+      <th>Date</th>
+      <th>Places</th>
+      <th>Réservé par</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let r of reservations">
+      <td>{{ r.filmTitle }}</td>
+      <td>{{ r.date }}</td>
+      <td>{{ r.seats }}</td>
+      <td>{{ r.name }}</td>
+    </tr>
+  </tbody>
+</table>
