@@ -70,6 +70,7 @@ export class ReservationComponent implements OnInit {
     const payload = {
       filmId: this.film?.id ?? null,
       filmTitle: this.film?.title ?? this.film?.name ?? null,
+      filmImage: this.film?.image ?? null,
       name: this.form.value.name,
       email: this.form.value.email,
       seats: Number(this.form.value.seats),

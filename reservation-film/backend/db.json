@@ -14,6 +14,10 @@
       "title": "Inception",
       "genre": "Sci-Fi",
       "image": "https://image.tmdb.org/t/p/original/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+      "director": "Christopher Nolan",
+      "duration": 148,
+      "releaseDate": 2010,
+      "description": "Un voleur pénètre les rêves afin d'extraire des informations, mais une mission de rêve dans le rêve change tout.",
       "favoris": false,
       "now_playing": false
     },
@@ -22,6 +26,10 @@
       "title": "Avatar: The Way of Water",
       "genre": "Adventure",
       "image": "https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "director": "James Cameron",
+      "duration": 192,
+      "releaseDate": 2022,
+      "description": "Jake Sully protège sa famille dans les océans de Pandora face à une nouvelle menace humaine.",
       "favoris": false,
       "now_playing": true
     },
@@ -30,6 +38,10 @@
       "title": "The Batman",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "director": "Matt Reeves",
+      "duration": 176,
+      "releaseDate": 2022,
+      "description": "Batman enquête sur une série de meurtres liés à la corruption de Gotham.",
       "favoris": false,
       "now_playing": false
     },
@@ -38,6 +50,10 @@
       "title": "Inside Out",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/lRHE0vzf3oYJrhbsHXjIkF4Nl1R.jpg",
+      "director": "Pete Docter",
+      "duration": 94,
+      "releaseDate": 2015,
+      "description": "Les émotions de Riley prennent vie alors qu'elle s'adapte à un déménagement.",
       "favoris": false,
       "now_playing": false
     },
@@ -46,6 +62,10 @@
       "title": "Interstellar",
       "genre": "Sci-Fi",
       "image": "https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "director": "Christopher Nolan",
+      "duration": 169,
+      "releaseDate": 2014,
+      "description": "Un groupe d'astronautes voyage à travers un trou de ver pour sauver l'humanité.",
       "favoris": false,
       "now_playing": false
     },
@@ -54,6 +74,10 @@
       "title": "Spider-Man: No Way Home",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+      "director": "Jon Watts",
+      "duration": 148,
+      "releaseDate": 2021,
+      "description": "Peter Parker fait face aux conséquences de son identité révélée et aux visiteurs du multivers.",
       "favoris": false,
       "now_playing": true
     },
@@ -62,6 +86,10 @@
       "title": "Dune",
       "genre": "Sci-Fi",
       "image": "https://image.tmdb.org/t/p/original/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "director": "Denis Villeneuve",
+      "duration": 155,
+      "releaseDate": 2021,
+      "description": "Paul Atréides lutte pour son destin sur la planète désertique Arrakis.",
       "favoris": false,
       "now_playing": false
     },
@@ -70,6 +98,10 @@
       "title": "John Wick",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
+      "director": "Chad Stahelski",
+      "duration": 101,
+      "releaseDate": 2014,
+      "description": "Un ancien tueur à gages reprend les armes après une trahison personnelle.",
       "favoris": false,
       "now_playing": false
     },
@@ -78,6 +110,10 @@
       "title": "Black Panther",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "director": "Ryan Coogler",
+      "duration": 134,
+      "releaseDate": 2018,
+      "description": "T'Challa retourne au Wakanda pour assumer son rôle de roi.",
       "favoris": false,
       "now_playing": false
     },
@@ -86,6 +122,10 @@
       "title": "Joker",
       "genre": "Drama",
       "image": "https://image.tmdb.org/t/p/original/udDclJoHjfjb8Ekgsd4FDteOkCU.jpg",
+      "director": "Todd Phillips",
+      "duration": 122,
+      "releaseDate": 2019,
+      "description": "L’histoire tragique de la déchéance d’Arthur Fleck vers la folie.",
       "favoris": false,
       "now_playing": false
     },
@@ -94,6 +134,10 @@
       "title": "Frozen",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/ctN9yq7kLBbG2y9stuGG6wXFxV.jpg",
+      "director": "Chris Buck",
+      "duration": 102,
+      "releaseDate": 2013,
+      "description": "Elsa découvre ses pouvoirs de glace pendant qu’Anna tente de sauver le royaume.",
       "favoris": false,
       "now_playing": false
     },
@@ -102,6 +146,10 @@
       "title": "Top Gun: Maverick",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+      "director": "Joseph Kosinski",
+      "duration": 131,
+      "releaseDate": 2022,
+      "description": "Maverick retourne à l'école Top Gun pour former une nouvelle génération de pilotes.",
       "favoris": false,
       "now_playing": true
     },
@@ -110,6 +158,10 @@
       "title": "The Lion King",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg",
+      "director": "Jon Favreau",
+      "duration": 118,
+      "releaseDate": 2019,
+      "description": "Simba doit revendiquer sa place de roi après la mort de son père.",
       "favoris": false,
       "now_playing": false
     },
@@ -118,6 +170,10 @@
       "title": "The Matrix",
       "genre": "Sci-Fi",
       "image": "https://image.tmdb.org/t/p/original/aOIuZAjPaRIE6CMzbazvcHuHXDc.jpg",
+      "director": "The Wachowskis",
+      "duration": 136,
+      "releaseDate": 1999,
+      "description": "Neo découvre que la réalité n’est qu’une simulation contrôlée par des machines.",
       "favoris": false,
       "now_playing": false
     },
@@ -126,6 +182,10 @@
       "title": "Shutter Island",
       "genre": "Thriller",
       "image": "https://image.tmdb.org/t/p/original/4GDy0PHYX3VRXUtwK5ysFbg3kEx.jpg",
+      "director": "Martin Scorsese",
+      "duration": 138,
+      "releaseDate": 2010,
+      "description": "Deux agents fédéraux enquêtent sur la disparition d’une patiente internée en asile.",
       "favoris": false,
       "now_playing": false
     },
@@ -134,6 +194,10 @@
       "title": "Minions",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/q0R4crx2SehcEEQEkYObktdeFy.jpg",
+      "director": "Pierre Coffin",
+      "duration": 91,
+      "releaseDate": 2015,
+      "description": "Les Minions cherchent un nouveau maître diabolique à servir.",
       "favoris": false,
       "now_playing": false
     },
@@ -142,6 +206,10 @@
       "title": "Doctor Strange",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/xf8PbyQcCkYDx7otGykDzR9Ctt6.jpg",
+      "director": "Scott Derrickson",
+      "duration": 115,
+      "releaseDate": 2016,
+      "description": "Un chirurgien découvre la magie et protège notre réalité.",
       "favoris": false,
       "now_playing": false
     },
@@ -150,6 +218,10 @@
       "title": "Toy Story",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/uXDfjJbdP4ijW5hWSBrPrlKpxab.jpg",
+      "director": "John Lasseter",
+      "duration": 81,
+      "releaseDate": 1995,
+      "description": "Woody et Buzz Lightyear apprennent à devenir amis.",
       "favoris": false,
       "now_playing": false
     },
@@ -158,6 +230,10 @@
       "title": "Fast & Furious 9",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/bOFaAXmWWXC3Rbv4u4uM9ZSzRXP.jpg",
+      "director": "Justin Lin",
+      "duration": 143,
+      "releaseDate": 2021,
+      "description": "Dom affronte son frère dans une nouvelle menace mondiale.",
       "favoris": false,
       "now_playing": false
     },
@@ -166,6 +242,10 @@
       "title": "The Wolf of Wall Street",
       "genre": "Drama",
       "image": "https://image.tmdb.org/t/p/original/pWHf4khOloNVfCxscsXFj3jj6gP.jpg",
+      "director": "Martin Scorsese",
+      "duration": 180,
+      "releaseDate": 2013,
+      "description": "L’ascension et la chute d’un courtier démesuré de Wall Street.",
       "favoris": false,
       "now_playing": false
     },
@@ -174,6 +254,10 @@
       "title": "Harry Potter and the Sorcerer's Stone",
       "genre": "Fantasy",
       "image": "https://image.tmdb.org/t/p/original/wuMc08IPKEatf9rnMNXvIDxqP4W.jpg",
+      "director": "Chris Columbus",
+      "duration": 152,
+      "releaseDate": 2001,
+      "description": "Harry découvre qu'il est sorcier et rejoint Poudlard.",
       "favoris": false,
       "now_playing": false
     },
@@ -182,6 +266,10 @@
       "title": "Avengers: Endgame",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/or06FN3Dka5tukK1e9sl16pB3iy.jpg",
+      "director": "Anthony & Joe Russo",
+      "duration": 181,
+      "releaseDate": 2019,
+      "description": "Les Avengers tentent de restaurer l'univers après le snap de Thanos.",
       "favoris": false,
       "now_playing": false
     },
@@ -190,6 +278,10 @@
       "title": "Beauty and the Beast",
       "genre": "Romance",
       "image": "https://image.tmdb.org/t/p/original/tWqifoYuwLETmmasnGHO7xBjEtt.jpg",
+      "director": "Bill Condon",
+      "duration": 129,
+      "releaseDate": 2017,
+      "description": "Une jeune femme tombe amoureuse d’une bête transformée.",
       "favoris": false,
       "now_playing": false
     },
@@ -198,6 +290,10 @@
       "title": "Coco",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/gGEsBPAijhVUFoiNpgZXqRVWJt2.jpg",
+      "director": "Lee Unkrich",
+      "duration": 105,
+      "releaseDate": 2017,
+      "description": "Miguel explore le monde des morts pour retrouver un secret familial.",
       "favoris": false,
       "now_playing": false
     },
@@ -206,6 +302,10 @@
       "title": "Deadpool",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/fSRb7vyIP8rQpL0I47P3qUsEKX3.jpg",
+      "director": "Tim Miller",
+      "duration": 108,
+      "releaseDate": 2016,
+      "description": "Un anti-héros provocateur cherche vengeance après une transformation extrême.",
       "favoris": false,
       "now_playing": false
     },
@@ -214,6 +314,10 @@
       "title": "Guardians of the Galaxy",
       "genre": "Sci-Fi",
       "image": "https://image.tmdb.org/t/p/original/r7vmZjiyZw9rpJMQJdXpjgiCOk9.jpg",
+      "director": "James Gunn",
+      "duration": 121,
+      "releaseDate": 2014,
+      "description": "Une équipe improbable devient les Gardiens pour sauver la galaxie.",
       "favoris": false,
       "now_playing": false
     },
@@ -222,6 +326,10 @@
       "title": "The Dark Knight",
       "genre": "Action",
       "image": "https://image.tmdb.org/t/p/original/qJ2tW6WMUDux911r6m7haRef0WH.jpg",
+      "director": "Christopher Nolan",
+      "duration": 152,
+      "releaseDate": 2008,
+      "description": "Batman affronte le Joker dans une lutte psychologique.",
       "favoris": false,
       "now_playing": false
     },
@@ -230,6 +338,10 @@
       "title": "Soul",
       "genre": "Animation",
       "image": "https://image.tmdb.org/t/p/original/hm58Jw4Lw8OIeECIq5qyPYhAeRJ.jpg",
+      "director": "Pete Docter",
+      "duration": 102,
+      "releaseDate": 2020,
+      "description": "Un musicien découvre le sens de la vie après une expérience hors du corps.",
       "favoris": false,
       "now_playing": false
     },
@@ -238,6 +350,10 @@
       "title": "The Hunger Games",
       "genre": "Adventure",
       "image": "https://image.tmdb.org/t/p/original/1O7PpJ3W6GII4XESyqSeXfce07Z.jpg",
+      "director": "Gary Ross",
+      "duration": 142,
+      "releaseDate": 2012,
+      "description": "Katniss se porte volontaire pour participer aux Hunger Games.",
       "favoris": false,
       "now_playing": false
     },
@@ -246,11 +362,37 @@
       "title": "Aladdin",
       "genre": "Fantasy",
       "image": "https://image.tmdb.org/t/p/original/3iYQTLGoy7QnjcUYRJy4YrAgGvp.jpg",
+      "director": "Guy Ritchie",
+      "duration": 128,
+      "releaseDate": 2019,
+      "description": "Un jeune voleur rencontre une princesse et découvre un génie magique.",
       "favoris": false,
       "now_playing": false
     }
   ],
-  "favorites": [],
+  "favorites": [
+    {
+      "id": "27cf",
+      "filmId": "6",
+      "filmTitle": "Spider-Man: No Way Home",
+      "filmImage": "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
+      "createdAt": "2025-11-11T19:12:39.964Z"
+    },
+    {
+      "id": "0cca",
+      "filmId": "7",
+      "filmTitle": "Dune",
+      "filmImage": "https://image.tmdb.org/t/p/original/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
+      "createdAt": "2025-11-11T19:12:41.033Z"
+    },
+    {
+      "id": "b99b",
+      "filmId": "12",
+      "filmTitle": "Top Gun: Maverick",
+      "filmImage": "https://image.tmdb.org/t/p/original/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
+      "createdAt": "2025-11-11T19:12:42.873Z"
+    }
+  ],
   "genres": [
     {
       "id": "1",
@@ -283,37 +425,16 @@
   ],
   "reservations": [
     {
-      "id": "01a7",
-      "filmId": "1",
-      "filmTitle": "Inception",
-      "name": "test",
-      "email": "test@test.com",
-      "seats": 4,
-      "date": "2025-11-13",
-      "phone": "",
-      "createdAt": "2025-11-11T13:11:26.971Z"
-    },
-    {
-      "id": "e80a",
-      "filmId": "4",
-      "filmTitle": "Inside Out",
-      "name": "test",
-      "email": "test@test.com",
-      "seats": 1,
-      "date": "2025-11-12",
-      "phone": "",
-      "createdAt": "2025-11-11T13:12:04.070Z"
-    },
-    {
-      "id": "b432",
-      "filmId": "1",
-      "filmTitle": "Inception",
+      "id": "0564",
+      "filmId": "3",
+      "filmTitle": "The Batman",
+      "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
       "name": "test",
       "email": "test@test",
       "seats": 1,
-      "date": "2025-11-14",
-      "phone": "07457863796",
-      "createdAt": "2025-11-11T13:13:54.673Z"
+      "date": "2025-11-21",
+      "phone": "",
+      "createdAt": "2025-11-11T19:20:30.917Z"
     }
   ]
 }

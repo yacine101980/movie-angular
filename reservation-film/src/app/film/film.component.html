@@ -18,12 +18,14 @@
           </div>
 
           <div class="film-actions">
-            <button class="fav-btn" [class.active]="isFavorite(film.id)" (click)="toggleFavorite(film.id, $event)"
+            <button class="fav-btn" [class.active]="isFavorite(film.id)" (click)="toggleFavorite(film, $event)"
               title="Favori">
               <span *ngIf="isFavorite(film.id)">★</span>
               <span *ngIf="!isFavorite(film.id)">☆</span>
             </button>
+          </div>
 
+          <div class="film-actions">
             <button class="detail-btn" (click)="navigateToDetail(film.id)">Détails</button>
             <button class="reserve-btn" (click)="navigateToReservation(film.id)">Réserver</button>
           </div>

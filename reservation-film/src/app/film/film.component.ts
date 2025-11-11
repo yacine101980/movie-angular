@@ -2,6 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-film',
@@ -16,19 +17,25 @@ export class FilmComponent implements OnInit{
   error: string | null = null;
   url = 'http://localhost:3000/movies';
 
+  // form: FormGroup;
+  film: any = null;
+  loadingFilm = false;
+  submitting = false;
+  // error: string | null = null;
+  success: string | null = null;
+
   // changed code: selected film id to toggle details
   selectedFilmId: number | null = null;
-
-  // new: favorites set (ids)
-  favorites = new Set<number>();
 
   constructor(
     private http: HttpClient,
     private router: Router,
     private authService: AuthService
   ) {}
+  
+  
+
   ngOnInit(): void {
-    this.loadFavorites();
     this.loadFilms();
   }
 
@@ -70,46 +77,44 @@ export class FilmComponent implements OnInit{
     }
   }
 
-  // --- Favorites logic ---
-  private loadFavorites(): void {
-    try {
-      const raw = localStorage.getItem('favorites');
-      if (raw) {
-        const arr = JSON.parse(raw) as number[];
-        arr.forEach(id => this.favorites.add(Number(id)));
-      }
-    } catch (e) {
-      console.error('Impossible de charger les favoris', e);
-    }
-  }
+  private saveFavorite(film: any): void {
+  const payload = {
+    filmId: film.id,
+    filmTitle: film.title,
+    filmImage: film.image,
+    createdAt: new Date().toISOString()
+  };
 
-  private saveFavorites(): void {
-    try {
-      localStorage.setItem('favorites', JSON.stringify(Array.from(this.favorites)));
-    } catch (e) {
-      console.error('Impossible de sauvegarder les favoris', e);
+  this.http.post('http://localhost:3000/favorites', payload).subscribe({
+    next: () => {},
+    error: err => {
+      console.error('Impossible de sauvegarder les favoris', err);
     }
-  }
+  });
+}
 
-  toggleFavorite(id: number | undefined, event?: Event): void {
-    if (event) { event.stopPropagation(); } // prevent row clicks
-    if (id == null) return;
-    if (this.favorites.has(id)) {
-      this.favorites.delete(id);
-    } else {
-      this.favorites.add(id);
-    }
-    this.saveFavorites();
+
+  favorites = new Set<number>();
+
+  toggleFavorite(film: any, event?: Event): void {
+  if (event) event.stopPropagation();
+
+  if (!film?.id) return;
+
+  if (this.favorites.has(film.id)) {
+    this.favorites.delete(film.id);
+  } else {
+    this.favorites.add(film.id);
+    this.saveFavorite(film); // ici on passe le film
   }
+}
+
 
   isFavorite(id: number | undefined): boolean {
     if (id == null) return false;
     return this.favorites.has(id);
   }
 
-  get favoritesCount(): number {
-    return this.favorites.size;
-  }
 
   logout(): void {
     this.authService.logout();

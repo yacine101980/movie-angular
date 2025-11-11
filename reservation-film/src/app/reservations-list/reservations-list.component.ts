@@ -7,11 +7,12 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './reservations-list.component.html',
   styleUrl: './reservations-list.component.css'
 })
-export class ReservationsListComponent implements OnInit{
-reservations: any[] = [];
+
+export class ReservationsListComponent implements OnInit {
+
+  reservations: any[] = [];
   loading = false;
-  error: string | null = null;
-  private reservationsUrl = 'http://localhost:3000/reservations';
+  private url = 'http://localhost:3000/reservations';
 
   constructor(private http: HttpClient) {}
 
@@ -21,15 +22,23 @@ reservations: any[] = [];
 
   loadReservations(): void {
     this.loading = true;
-    this.http.get<any[]>(this.reservationsUrl).subscribe({
-      next: res => {
-        this.reservations = res;
+    this.http.get<any[]>(this.url).subscribe({
+      next: data => {
+        this.reservations = data;
         this.loading = false;
       },
-      error: err => {
-        console.error(err);
-        this.error = "Impossible de charger vos réservations.";
+      error: () => {
         this.loading = false;
+      }
+    });
+  }
+
+  cancelReservation(id: string): void {
+    if (!confirm('Voulez-vous vraiment annuler cette réservation ?')) return;
+
+    this.http.delete(`${this.url}/${id}`).subscribe({
+      next: () => {
+        this.reservations = this.reservations.filter(r => r.id !== id);
       }
     });
   }
