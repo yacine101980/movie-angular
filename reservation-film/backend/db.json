@@ -1,11 +1,20 @@
 {
   "users": [
     {
-      "id": "042c",
-      "username": "test",
-      "password": "testtest",
+      "id": "c939372d-9575-40a4-8320-dd39cee80e4e",
+      "username": "moussa",
       "email": "test@test.com",
-      "createdAt": "2025-11-11T13:48:18.032Z"
+      "password": "testtest",
+      "favorites": [],
+      "reservations": []
+    },
+    {
+      "id": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "username": "moussa",
+      "email": "moussa@test.com",
+      "password": "moussa",
+      "favorites": [],
+      "reservations": []
     }
   ],
   "movies": [
@@ -372,25 +381,28 @@
   ],
   "favorites": [
     {
-      "id": "27cf",
-      "filmId": "6",
-      "filmTitle": "Spider-Man: No Way Home",
-      "filmImage": "https://image.tmdb.org/t/p/original/1g0dhYtq4irTY1GPXvft6k4YLjm.jpg",
-      "createdAt": "2025-11-11T19:12:39.964Z"
+      "id": "6477",
+      "userId": "c939372d-9575-40a4-8320-dd39cee80e4e",
+      "filmId": "5",
+      "filmTitle": "Interstellar",
+      "filmImage": "https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "createdAt": "2025-11-12T19:00:33.995Z"
     },
     {
-      "id": "0cca",
-      "filmId": "7",
-      "filmTitle": "Dune",
-      "filmImage": "https://image.tmdb.org/t/p/original/d5NXSklXo0qyIYkgV94XAgMIckC.jpg",
-      "createdAt": "2025-11-11T19:12:41.033Z"
+      "id": "6008",
+      "userId": "c939372d-9575-40a4-8320-dd39cee80e4e",
+      "filmId": "3",
+      "filmTitle": "The Batman",
+      "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "createdAt": "2025-11-12T19:00:35.124Z"
     },
     {
-      "id": "b99b",
-      "filmId": "12",
-      "filmTitle": "Top Gun: Maverick",
-      "filmImage": "https://image.tmdb.org/t/p/original/62HCnUTziyWcpDaBO2i1DX17ljH.jpg",
-      "createdAt": "2025-11-11T19:12:42.873Z"
+      "id": "8229",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "5",
+      "filmTitle": "Interstellar",
+      "filmImage": "https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "createdAt": "2025-11-12T19:53:21.419Z"
     }
   ],
   "genres": [
@@ -425,16 +437,30 @@
   ],
   "reservations": [
     {
-      "id": "0564",
+      "id": "80ca",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
       "filmId": "3",
       "filmTitle": "The Batman",
       "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-      "name": "test",
-      "email": "test@test",
+      "name": "testts",
+      "email": "testt@tetstz",
       "seats": 1,
-      "date": "2025-11-21",
-      "phone": "",
-      "createdAt": "2025-11-11T19:20:30.917Z"
+      "date": "2025-11-28",
+      "phone": null,
+      "createdAt": "2025-11-12T20:15:37.473Z"
+    },
+    {
+      "id": "2f58",
+      "userId": "c939372d-9575-40a4-8320-dd39cee80e4e",
+      "filmId": "13",
+      "filmTitle": "The Lion King",
+      "filmImage": "https://image.tmdb.org/t/p/original/2bXbqYdUdNVa8VIWXVfclP2ICtT.jpg",
+      "name": "testts",
+      "email": "tetz@dyydjd",
+      "seats": 4,
+      "date": "2025-11-15",
+      "phone": null,
+      "createdAt": "2025-11-12T20:26:22.589Z"
     }
   ]
 }

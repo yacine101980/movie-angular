@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
+import { AuthService } from '../auth/auth.service';
 @Component({
   selector: 'app-reservation',
   standalone: false,
@@ -24,7 +25,8 @@ export class ReservationComponent implements OnInit {
     private fb: FormBuilder,
     private http: HttpClient,
     private route: ActivatedRoute,
-    private router: Router
+    private router: Router,
+    private authService: AuthService
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -68,16 +70,18 @@ export class ReservationComponent implements OnInit {
     }
 
     const payload = {
-      filmId: this.film?.id ?? null,
-      filmTitle: this.film?.title ?? this.film?.name ?? null,
-      filmImage: this.film?.image ?? null,
+      userId: this.authService.getCurrentUser()?.id,
+      filmId: this.film.id,
+      filmTitle: this.film.title,
+      filmImage: this.film.image, // ✅ ajoute ici
       name: this.form.value.name,
       email: this.form.value.email,
-      seats: Number(this.form.value.seats),
+      seats: this.form.value.seats,
       date: this.form.value.date,
-      phone: this.form.value.phone,
+      phone: this.form.value.phone || null,
       createdAt: new Date().toISOString()
     };
+
 
     this.submitting = true;
     this.http.post(this.reservationsUrl, payload).subscribe({

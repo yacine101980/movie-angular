@@ -46,9 +46,9 @@
         <input formControlName="phone" />
       </label>
 
-      <div class="actions">
-        <button type="submit" [disabled]="submitting">Confirmer la réservation</button>
-        <button type="button" (click)="cancel()" [disabled]="submitting">Annuler</button>
+      <div class="reservation-actions">
+        <button class="confirmer" type="submit" [disabled]="submitting">Confirmer la réservation</button>
+        <button class="annuler" type="button" (click)="cancel()" [disabled]="submitting">Annuler</button>
       </div>
 
       <div class="success" *ngIf="success">{{ success }}</div>

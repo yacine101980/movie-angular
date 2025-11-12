@@ -10,7 +10,7 @@ import { FormGroup } from '@angular/forms';
   templateUrl: './film.component.html',
   styleUrls: ['./film.component.css'] // corrected property name
 })
-export class FilmComponent implements OnInit{
+export class FilmComponent implements OnInit {
   title = 'reservation-film';
   filmList: any[] = [];
   loading = false;
@@ -31,12 +31,13 @@ export class FilmComponent implements OnInit{
     private http: HttpClient,
     private router: Router,
     private authService: AuthService
-  ) {}
-  
-  
+  ) { }
+
+
 
   ngOnInit(): void {
     this.loadFilms();
+    this.loadUserFavorites();
   }
 
   loadFilms(): void {
@@ -78,36 +79,59 @@ export class FilmComponent implements OnInit{
   }
 
   private saveFavorite(film: any): void {
-  const payload = {
-    filmId: film.id,
-    filmTitle: film.title,
-    filmImage: film.image,
-    createdAt: new Date().toISOString()
-  };
-
-  this.http.post('http://localhost:3000/favorites', payload).subscribe({
-    next: () => {},
-    error: err => {
-      console.error('Impossible de sauvegarder les favoris', err);
+    const user = this.authService.getCurrentUser();
+    if (!user) {
+      console.error("Aucun utilisateur connecté");
+      return;
     }
-  });
-}
 
+    const payload = {
+      userId: user.id,
+      filmId: film.id,
+      filmTitle: film.title,
+      filmImage: film.image,
+      createdAt: new Date().toISOString()
+    };
+
+    this.http.post('http://localhost:3000/favorites', payload).subscribe({
+      next: () => console.log('Favori ajouté avec succès !'),
+      error: err => {
+        console.error('Impossible de sauvegarder les favoris', err);
+      }
+    });
+  }
+
+  private removeFavorite(filmId: string): void {
+    this.http.get<any[]>(`http://localhost:3000/favorites?filmId=${filmId}`).subscribe({
+      next: (favorites) => {
+        if (favorites.length > 0) {
+          const favId = favorites[0].id;
+          this.http.delete(`http://localhost:3000/favorites/${favId}`).subscribe({
+            next: () => console.log('Favori supprimé'),
+            error: err => console.error('Erreur lors de la suppression', err)
+          });
+        }
+      },
+      error: err => console.error('Erreur lors de la récupération du favori', err)
+    });
+  }
 
   favorites = new Set<number>();
 
   toggleFavorite(film: any, event?: Event): void {
-  if (event) event.stopPropagation();
+    if (event) event.stopPropagation();
 
-  if (!film?.id) return;
+    if (!film?.id) return;
 
-  if (this.favorites.has(film.id)) {
-    this.favorites.delete(film.id);
-  } else {
-    this.favorites.add(film.id);
-    this.saveFavorite(film); // ici on passe le film
+    if (this.favorites.has(film.id)) {
+      this.favorites.delete(film.id);
+      this.removeFavorite(film.id); // <-- suppression
+    } else {
+      this.favorites.add(film.id);
+      this.saveFavorite(film); // <-- ajout
+    }
   }
-}
+
 
 
   isFavorite(id: number | undefined): boolean {
@@ -123,6 +147,18 @@ export class FilmComponent implements OnInit{
 
   isAuthenticated(): boolean {
     return this.authService.isLoggedIn();
+  }
+
+  private loadUserFavorites(): void {
+    const user = this.authService.getCurrentUser();
+    if (!user) return;
+
+    this.http.get<any[]>(`http://localhost:3000/favorites?userId=${user.id}`).subscribe({
+      next: favorites => {
+        this.favorites = new Set(favorites.map(f => f.filmId));
+      },
+      error: err => console.error('Erreur lors du chargement des favoris', err)
+    });
   }
 
 }

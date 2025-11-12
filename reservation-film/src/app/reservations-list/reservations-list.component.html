@@ -1,24 +1,29 @@
 <h2>Mes Réservations</h2>
 
-<div *ngIf="loading">Chargement...</div>
+<div *ngIf="loading" class="loading">Chargement...</div>
 
-<div *ngIf="!loading && reservations.length === 0">
+<div *ngIf="!loading && reservations.length === 0" class="empty">
   Aucune réservation trouvée.
 </div>
 
 <ul *ngIf="!loading && reservations.length > 0" class="reservation-list">
-  <li *ngFor="let r of reservations" class="reservation-item">
-    <img class="reservation-image" [src]="r.filmImage" [alt]="r.filmTitle" />
+  <li *ngFor="let reservation of reservations" class="reservation-item">
+     <img class="reservation-image" [src]="reservation.filmImage" [alt]="reservation.filmTitle" />
 
     <div class="reservation-info">
-      <h3>{{ r.filmTitle }}</h3>
-      <p>Date : {{ r.date }}</p>
-      <p>Places : {{ r.seats }}</p>
-      <p>Réservé par : {{ r.name }}</p>
+      <p><strong>Nom :</strong> {{ reservation.name }}</p>
+      <p><strong>Email :</strong> {{ reservation.email }}</p>
+      <p><strong>Places réservées :</strong> {{ reservation.seats }}</p>
+      <p *ngIf="reservation.phone"><strong>Téléphone :</strong> {{ reservation.phone }}</p>
     </div>
 
-    <button class="cancel-btn" (click)="cancelReservation(r.id)">
-      Annuler
+    <button class="cancel-btn" (click)="cancelReservation(reservation.id)">
+      Annuler la réservation
     </button>
+
   </li>
 </ul>
+
+
+
+     

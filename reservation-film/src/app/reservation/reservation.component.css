@@ -82,15 +82,32 @@ input{
 }
 input:focus{ border-color: var(--accent); box-shadow: 0 6px 18px rgba(11,94,215,0.06); }
 
-.actions{
+.reservation-actions {
   display: flex;
-  gap: 0.6rem;
-  margin-top: 0.5rem;
+  justify-content: space-between;
+  padding: 0.6rem 0.75rem;
+  margin-top: auto;
 }
+
+/* Buttons */
+.confirmer, .annuler {
+  border: none;
+  padding: 0.35rem 0.7rem;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: .85rem;
+  background: var(--accent);
+  color: #000000;
+}
+
+.confirmer { background: #10b981; }
+.confirmer:hover { background: #0f9d74; }
+
+.annuler:hover { background: #a90101; }
 
 button[type="submit"]{
   background: var(--accent);
-  color: #fff;
+  color: #030000;
   border: none;
   padding: 0.6rem 0.9rem;
   border-radius: 8px;
