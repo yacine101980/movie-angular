@@ -2,38 +2,34 @@ import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
-import { FormGroup } from '@angular/forms';
+import { Film } from '../models/film.model';
+import { FilmService } from '../shared/services/film/film.service';
+import { Favorite } from '../models/favorite.model';
 
 @Component({
   selector: 'app-film',
   standalone: false,
   templateUrl: './film.component.html',
-  styleUrls: ['./film.component.css'] // corrected property name
+  styleUrls: ['./film.component.css']
 })
 export class FilmComponent implements OnInit {
-  title = 'reservation-film';
+  favorites = new Set<string>();
   filmList: any[] = [];
   loading = false;
   error: string | null = null;
-  url = 'http://localhost:3000/movies';
 
-  // form: FormGroup;
-  film: any = null;
+  film: Film[] = [];
   loadingFilm = false;
   submitting = false;
-  // error: string | null = null;
+  favoritesList: Favorite[] = [];
   success: string | null = null;
-
-  // changed code: selected film id to toggle details
   selectedFilmId: number | null = null;
 
   constructor(
-    private http: HttpClient,
     private router: Router,
-    private authService: AuthService
+    private authService: AuthService,
+    private filmService: FilmService
   ) { }
-
-
 
   ngOnInit(): void {
     this.loadFilms();
@@ -41,16 +37,13 @@ export class FilmComponent implements OnInit {
   }
 
   loadFilms(): void {
-    this.loading = true;
-    this.error = null;
-    this.http.get<any[]>(this.url).subscribe({
-      next: films => {
-        this.filmList = films;
+    this.filmService.loadFilms().subscribe({
+      next: (data: Film[]) => {
+        this.filmList = data;
         this.loading = false;
       },
-      error: err => {
-        this.error = 'Impossible de charger les films';
-        console.error(err);
+      error: (err: any) => {
+        console.error('Erreur lors du chargement des films', err);
         this.loading = false;
       }
     });
@@ -85,60 +78,60 @@ export class FilmComponent implements OnInit {
       return;
     }
 
-    const payload = {
-      userId: user.id,
-      filmId: film.id,
-      filmTitle: film.title,
-      filmImage: film.image,
-      createdAt: new Date().toISOString()
-    };
-
-    this.http.post('http://localhost:3000/favorites', payload).subscribe({
-      next: () => console.log('Favori ajouté avec succès !'),
-      error: err => {
-        console.error('Impossible de sauvegarder les favoris', err);
+    this.filmService.saveFavorite(film).subscribe({
+      next: () => {
+        console.log('Favori ajouté')
+      },
+      error: (err) => {
+        console.error('Erreur lors de l\'ajout du favori', err);
       }
     });
   }
 
-  private removeFavorite(filmId: string): void {
-    this.http.get<any[]>(`http://localhost:3000/favorites?filmId=${filmId}`).subscribe({
-      next: (favorites) => {
-        if (favorites.length > 0) {
-          const favId = favorites[0].id;
-          this.http.delete(`http://localhost:3000/favorites/${favId}`).subscribe({
-            next: () => console.log('Favori supprimé'),
-            error: err => console.error('Erreur lors de la suppression', err)
-          });
-        }
+  removeFavorite(filmId: string): void {
+    this.filmService.removeFavorite(filmId).subscribe({
+      next: () => {
+        console.log("Favori supprimé !");
+        this.favorites.delete((filmId));
       },
-      error: err => console.error('Erreur lors de la récupération du favori', err)
+      error: err => console.error(err)
     });
   }
 
-  favorites = new Set<number>();
+  private loadUserFavorites(): void {
+    this.filmService.loadUserFavorites().subscribe({
+      next: (favs) => {
+        this.favorites = new Set(favs.map(f => String(f.filmId)));
+      },
+      error: err => {
+        console.error('Erreur chargement favoris', err);
+      }
+    });
+  }
 
-  toggleFavorite(film: any, event?: Event): void {
+  toggleFavorite(film: Film, event?: Event): void {
     if (event) event.stopPropagation();
-
     if (!film?.id) return;
 
     if (this.favorites.has(film.id)) {
       this.favorites.delete(film.id);
-      this.removeFavorite(film.id); // <-- suppression
+      this.filmService.removeFavorite(film.id).subscribe({
+        next: () => console.log("Favori supprimé"),
+        error: err => console.error("Erreur suppression favori", err)
+      });
+
     } else {
       this.favorites.add(film.id);
-      this.saveFavorite(film); // <-- ajout
+      this.filmService.saveFavorite(film).subscribe({
+        next: () => console.log("Favori ajouté"),
+        error: err => console.error("Erreur ajout favori", err)
+      });
     }
   }
 
-
-
-  isFavorite(id: number | undefined): boolean {
-    if (id == null) return false;
-    return this.favorites.has(id);
+  isFavorite(id: string| undefined): boolean { 
+    if (id == null) return false; return this.favorites.has(id); 
   }
-
 
   logout(): void {
     this.authService.logout();
@@ -147,18 +140,6 @@ export class FilmComponent implements OnInit {
 
   isAuthenticated(): boolean {
     return this.authService.isLoggedIn();
-  }
-
-  private loadUserFavorites(): void {
-    const user = this.authService.getCurrentUser();
-    if (!user) return;
-
-    this.http.get<any[]>(`http://localhost:3000/favorites?userId=${user.id}`).subscribe({
-      next: favorites => {
-        this.favorites = new Set(favorites.map(f => f.filmId));
-      },
-      error: err => console.error('Erreur lors du chargement des favoris', err)
-    });
   }
 
 }

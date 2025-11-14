@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { AuthService } from '../auth/auth.service';
 import { Reservation } from '../models/reservation.model';
+import { ReservationsListService } from '../shared/services/reservations-list/reservations-list.service';
 
 @Component({
   selector: 'app-reservations-list',
@@ -16,9 +17,10 @@ export class ReservationsListComponent implements OnInit {
   reservations: Reservation[] = [];
   loading = false;
   user: User | null = null;
-  private url = 'http://localhost:3000/reservations';
 
-  constructor(private http: HttpClient, private authService: AuthService) { }
+  constructor(private http: HttpClient, private authService: AuthService,
+    private reservationsListService: ReservationsListService
+  ) { }
 
   ngOnInit(): void {
     this.user = this.authService.getCurrentUser();
@@ -31,28 +33,25 @@ export class ReservationsListComponent implements OnInit {
   }
 
   loadReservations(): void {
-     this.loading = true;
-        this.http.get<Reservation[]>(`${this.url}?userId=${this.user?.id}`).subscribe({
-          next: data => {
-            this.reservations = data;
-            this.loading = false;
-          },
-          error: err => {
-            console.error('Erreur de chargement des favoris', err);
-            this.loading = false;
-          }
-        });
+    this.loading = true;
+    this.reservationsListService.loadReservations().subscribe({
+      next: (data: Reservation[]) => {
+        this.reservations = data;
+        this.loading = false;
+      },
+      error: err => {
+        console.error('Erreur lors du chargement des réservations', err);
+        this.loading = false;
+      }
+    });
   }
 
-  cancelReservation(id: string): void {
-    const fav = this.reservations.find(f => f.id === id);
-    if (!fav) return;
-
-    this.http.delete(`${this.url}/${fav.id}`).subscribe({
+  cancelReservation(reservationId: string): void {
+    this.reservationsListService.cancelReservation(reservationId).subscribe({
       next: () => {
-        this.reservations = this.reservations.filter(f => f.id !== fav.id);
+        this.reservations = this.reservations.filter(r => r.id !== reservationId);
       },
-      error: err => console.error('Erreur lors de la suppression', err)
+      error: err => console.error('Erreur suppression réservation :', err)
     });
   }
 }

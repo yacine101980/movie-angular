@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
+import { ReservationService } from '../shared/services/reservation/reservation.service';
 @Component({
   selector: 'app-reservation',
   standalone: false,
@@ -18,15 +19,11 @@ export class ReservationComponent implements OnInit {
   error: string | null = null;
   success: string | null = null;
 
-  private filmsUrl = 'http://localhost:3000/movies';
-  private reservationsUrl = 'http://localhost:3000/reservations';
-
   constructor(
     private fb: FormBuilder,
-    private http: HttpClient,
     private route: ActivatedRoute,
     private router: Router,
-    private authService: AuthService
+    private reservationService: ReservationService
   ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
@@ -45,61 +42,42 @@ export class ReservationComponent implements OnInit {
   }
 
   loadFilm(id: string): void {
-    this.loadingFilm = true;
-    this.error = null;
-    this.http.get<any>(`${this.filmsUrl}/${id}`).subscribe({
-      next: film => {
+    this.reservationService.loadFilm(id).subscribe({
+      next: (film) => {
         this.film = film;
+        this.reservationService.setFilm(film); // 💥 IMPORTANT
         this.loadingFilm = false;
       },
-      error: err => {
-        console.error(err);
-        this.error = "Impossible de charger le film.";
+      error: () => {
+        this.error = "Erreur lors du chargement du film.";
         this.loadingFilm = false;
       }
     });
   }
 
   submit(): void {
-    this.error = null;
-    this.success = null;
 
     if (this.form.invalid) {
       this.form.markAllAsTouched();
       return;
     }
 
-    const payload = {
-      userId: this.authService.getCurrentUser()?.id,
-      filmId: this.film.id,
-      filmTitle: this.film.title,
-      filmImage: this.film.image, // ✅ ajoute ici
-      name: this.form.value.name,
-      email: this.form.value.email,
-      seats: this.form.value.seats,
-      date: this.form.value.date,
-      phone: this.form.value.phone || null,
-      createdAt: new Date().toISOString()
-    };
-
-
     this.submitting = true;
-    this.http.post(this.reservationsUrl, payload).subscribe({
-      next: _res => {
-        this.success = 'Réservation enregistrée.';
-        // après un court délai, revenir à la liste ou aller où tu veux
-        setTimeout(() => this.router.navigate(['/']), 1200);
-      },
-      error: err => {
-        console.error(err);
-        this.error = "Erreur lors de l'enregistrement de la réservation.";
-        this.submitting = false;
-      },
-      complete: () => {
-        this.submitting = false;
-      }
-    });
+
+    this.reservationService.submitReservation(this.film, this.form.value)
+      .subscribe({
+        next: () => {
+          this.success = "Réservation réussie !";
+          this.submitting = false;
+          this.form.reset();
+        },
+        error: () => {
+          this.error = "Erreur lors de la soumission de la réservation.";
+          this.submitting = false;
+        }
+      });
   }
+
 
   cancel(): void {
     this.router.navigate(['/']);

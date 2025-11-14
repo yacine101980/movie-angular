@@ -377,32 +377,96 @@
       "description": "Un jeune voleur rencontre une princesse et découvre un génie magique.",
       "favoris": false,
       "now_playing": false
-    }
-  ],
-  "favorites": [
-    {
-      "id": "6477",
-      "userId": "c939372d-9575-40a4-8320-dd39cee80e4e",
-      "filmId": "5",
-      "filmTitle": "Interstellar",
-      "filmImage": "https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
-      "createdAt": "2025-11-12T19:00:33.995Z"
     },
     {
-      "id": "6008",
-      "userId": "c939372d-9575-40a4-8320-dd39cee80e4e",
-      "filmId": "3",
-      "filmTitle": "The Batman",
-      "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
-      "createdAt": "2025-11-12T19:00:35.124Z"
-    },
-    {
-      "id": "8229",
+      "id": "",
       "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
       "filmId": "5",
       "filmTitle": "Interstellar",
       "filmImage": "https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
-      "createdAt": "2025-11-12T19:53:21.419Z"
+      "createdAt": "2025-11-13T20:40:09.000Z"
+    },
+    {
+      "id": "",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "5",
+      "filmTitle": "Interstellar",
+      "filmImage": "https://image.tmdb.org/t/p/original/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "createdAt": "2025-11-13T20:40:16.862Z"
+    },
+    {
+      "id": "1b36",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "4",
+      "filmTitle": "Inside Out",
+      "filmImage": "https://image.tmdb.org/t/p/original/lRHE0vzf3oYJrhbsHXjIkF4Nl1R.jpg",
+      "createdAt": "2025-11-14T20:17:39.507Z"
+    },
+    {
+      "id": "f554",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "4",
+      "filmTitle": "Inside Out",
+      "filmImage": "https://image.tmdb.org/t/p/original/lRHE0vzf3oYJrhbsHXjIkF4Nl1R.jpg",
+      "createdAt": "2025-11-14T20:17:45.161Z"
+    },
+    {
+      "id": "e7e3",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "8",
+      "filmTitle": "John Wick",
+      "filmImage": "https://image.tmdb.org/t/p/original/fZPSd91yGE9fCcCe6OoQr6E3Bev.jpg",
+      "createdAt": "2025-11-14T20:17:54.323Z"
+    },
+    {
+      "id": "f57f",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "4",
+      "filmTitle": "Inside Out",
+      "filmImage": "https://image.tmdb.org/t/p/original/lRHE0vzf3oYJrhbsHXjIkF4Nl1R.jpg",
+      "createdAt": "2025-11-14T20:18:49.112Z"
+    },
+    {
+      "id": "65c2",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "3",
+      "filmTitle": "The Batman",
+      "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "createdAt": "2025-11-14T20:19:03.092Z"
+    },
+    {
+      "id": "fccb",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "1",
+      "filmTitle": "Inception",
+      "filmImage": "https://image.tmdb.org/t/p/original/qmDpIHrmpJINaRKAfWQfftjCdyi.jpg",
+      "createdAt": "2025-11-14T20:19:34.746Z"
+    }
+  ],
+  "favorites": [
+    {
+      "id": "860c",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "2",
+      "filmTitle": "Avatar: The Way of Water",
+      "filmImage": "https://image.tmdb.org/t/p/original/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+      "createdAt": "2025-11-13T20:28:28.834Z"
+    },
+    {
+      "id": "e1e8",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "9",
+      "filmTitle": "Black Panther",
+      "filmImage": "https://image.tmdb.org/t/p/original/uxzzxijgPIY7slzFvMotPv8wjKA.jpg",
+      "createdAt": "2025-11-14T21:14:19.654Z"
+    },
+    {
+      "id": "6f9a",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "3",
+      "filmTitle": "The Batman",
+      "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "createdAt": "2025-11-14T21:21:52.406Z"
     }
   ],
   "genres": [
@@ -461,6 +525,19 @@
       "date": "2025-11-15",
       "phone": null,
       "createdAt": "2025-11-12T20:26:22.589Z"
+    },
+    {
+      "id": "06fc",
+      "userId": "b36d605f-38bb-498b-947c-8eda75a9608e",
+      "filmId": "4",
+      "filmTitle": "Inside Out",
+      "filmImage": "https://image.tmdb.org/t/p/original/lRHE0vzf3oYJrhbsHXjIkF4Nl1R.jpg",
+      "name": "test",
+      "email": "etyyu@tettz",
+      "seats": 1,
+      "date": "2025-11-15",
+      "phone": null,
+      "createdAt": "2025-11-14T19:57:22.358Z"
     }
   ]
 }

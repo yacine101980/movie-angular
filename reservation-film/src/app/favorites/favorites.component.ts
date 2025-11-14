@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { User } from '../models/user.model';
 import { AuthService } from '../auth/auth.service';
 import { Favorite } from '../models/favorite.model';
+import { FavaritesService } from '../shared/services/favorites/favarites.service';
 
 @Component({
   selector: 'app-favorites',
@@ -19,7 +20,8 @@ export class FavoritesComponent implements OnInit {
 
   constructor(
     private http: HttpClient,
-    private authService: AuthService
+    private authService: AuthService,
+    private favaritesService: FavaritesService
   ) { }
 
   ngOnInit(): void {
@@ -31,31 +33,27 @@ export class FavoritesComponent implements OnInit {
     }
   }
 
-  // ✅ Charger les favoris du user connecté
-  loadFavorites(): void {
+  loadFavorites(): any {
     this.loading = true;
-    this.http.get<Favorite[]>(`${this.url}?userId=${this.user?.id}`).subscribe({
-      next: data => {
+    this.favaritesService.loadFavorites().subscribe({
+      next: (data: Favorite[]) => {
         this.favorites = data;
         this.loading = false;
       },
-      error: err => {
-        console.error('Erreur de chargement des favoris', err);
+      error: (err: any) => {
+        console.error('Erreur lors du chargement des favoris', err);
         this.loading = false;
       }
     });
   }
 
-  // ✅ Supprimer un favori
-  removeFavorite(filmId: string): void {
-    const fav = this.favorites.find(f => f.id === filmId);
-    if (!fav) return;
-
-    this.http.delete(`${this.url}/${fav.id}`).subscribe({
+  removeFavorite(favoriteId: string): void {
+    this.favaritesService.removeFavorite(favoriteId).subscribe({
       next: () => {
-        this.favorites = this.favorites.filter(f => f.id !== fav.id);
+        this.favorites = this.favorites.filter(f => f.id !== favoriteId);
       },
-      error: err => console.error('Erreur lors de la suppression', err)
+      error: (err) => console.error('Erreur suppression favori :', err)
     });
   }
+
 }
