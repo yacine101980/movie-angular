@@ -411,6 +411,30 @@
       "filmTitle": "The Batman",
       "filmImage": "https://image.tmdb.org/t/p/original/74xTEgt7R36Fpooo50r9T25onhq.jpg",
       "createdAt": "2025-11-14T21:21:52.406Z"
+    },
+    {
+      "id": "0abc",
+      "userId": "9a8c146d-9cfd-441b-940f-3d340a461c8f",
+      "filmId": "16",
+      "filmTitle": "Spirited Away",
+      "filmImage": "https://image.tmdb.org/t/p/w500/39wmItIWsg5sZMyRUHLkWBcuVCM.jpg",
+      "createdAt": "2025-11-27T11:07:03.739Z"
+    },
+    {
+      "id": "3e36",
+      "userId": "9a8c146d-9cfd-441b-940f-3d340a461c8f",
+      "filmId": "5",
+      "filmTitle": "Interstellar",
+      "filmImage": "https://image.tmdb.org/t/p/w500/rAiYTfKGqDCRIIqo664sY9XZIvQ.jpg",
+      "createdAt": "2025-11-27T11:28:34.787Z"
+    },
+    {
+      "id": "bde9",
+      "userId": "9a8c146d-9cfd-441b-940f-3d340a461c8f",
+      "filmId": "3",
+      "filmTitle": "The Batman",
+      "filmImage": "https://image.tmdb.org/t/p/w500/74xTEgt7R36Fpooo50r9T25onhq.jpg",
+      "createdAt": "2025-11-27T11:28:37.476Z"
     }
   ],
   "genres": [

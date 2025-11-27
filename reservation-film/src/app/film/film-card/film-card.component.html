@@ -1,0 +1,29 @@
+<div class="film-card" [class.fav]="favorite">
+  <div class="poster" (click)="onViewDetail()">
+    <img *ngIf="film?.image" [src]="film.image" [alt]="film?.title || film?.name" />
+  </div>
+
+  <div class="card-body">
+    <div class="film-info">
+      <strong>{{ film?.title || film?.name }}</strong>
+      <p class="genre">{{ film?.genre }}</p>
+    </div>
+
+    <div class="film-actions">
+      <button
+        class="fav-btn"
+        [class.active]="favorite"
+        (click)="onToggleFavorite($event)"
+        title="Favori"
+        type="button">
+        <span *ngIf="favorite">★</span>
+        <span *ngIf="!favorite">☆</span>
+      </button>
+    </div>
+
+    <div class="film-actions bottom">
+      <button class="detail-btn" type="button" (click)="onViewDetail()">Détails</button>
+      <button class="reserve-btn" type="button" (click)="onReserve()">Réserver</button>
+    </div>
+  </div>
+</div>

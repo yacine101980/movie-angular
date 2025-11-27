@@ -4,34 +4,19 @@
       <div *ngIf="loading">Chargement...</div>
       <div *ngIf="error" class="error">{{ error }}</div>
 
-      <div class="film-grid" *ngIf="!loading && !error && filmList.length; else noFilms">
-
-        <div class="film-card" *ngFor="let film of filmList; trackBy: trackById" [class.fav]="isFavorite(film.id)">
-
-          <div class="poster" (click)="navigateToDetail(film.id)">
-            <img *ngIf="film.image" [src]="film.image" [alt]="film.title || film.name">
-          </div>
-
-          <div class="film-info">
-            <strong>{{ film.title || film.name }}</strong>
-            <p class="genre">{{ film.genre }}</p>
-          </div>
-
-          <div class="film-actions">
-            <button class="fav-btn" [class.active]="isFavorite(film.id)" (click)="toggleFavorite(film, $event)"
-              title="Favori">
-              <span *ngIf="isFavorite(film.id)">★</span>
-              <span *ngIf="!isFavorite(film.id)">☆</span>
-            </button>
-          </div>
-
-          <div class="film-actions">
-            <button class="detail-btn" (click)="navigateToDetail(film.id)">Détails</button>
-            <button class="reserve-btn" (click)="navigateToReservation(film.id)">Réserver</button>
-          </div>
-
-        </div>
-
+      <div
+        class="film-grid"
+        *ngIf="!loading && !error && filmList.length; else noFilms"
+      >
+        <app-film-card
+          *ngFor="let film of filmList; trackBy: trackById"
+          [film]="film"
+          [favorite]="isFavorite(film.id)"
+          (viewDetail)="navigateToDetail($event)"
+          (reserve)="navigateToReservation($event)"
+          (favoriteToggle)="toggleFavorite($event)"
+        >
+        </app-film-card>
       </div>
 
       <ng-template #noFilms>

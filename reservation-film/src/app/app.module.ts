@@ -13,6 +13,7 @@ import { RegisterComponent } from './auth/register/register.component';
 import { NavbarComponent } from './shared/navbar/navbar.component';
 import { FavoritesComponent } from './favorites/favorites.component';
 import { ReservationsListComponent } from './reservations-list/reservations-list.component';
+import { FilmCardComponent } from './film/film-card/film-card.component';
 
 @NgModule({
   declarations: [
@@ -24,15 +25,11 @@ import { ReservationsListComponent } from './reservations-list/reservations-list
     RegisterComponent,
     NavbarComponent,
     FavoritesComponent,
-    ReservationsListComponent
+    ReservationsListComponent,
+    FilmCardComponent,
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    ReactiveFormsModule
-
-  ],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule],
   providers: [provideHttpClient()],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

@@ -1,6 +1,7 @@
 export interface Film {
   id: string;
   title: string;
+  name?: string;
   genre: string;
   image: string;
   director?: string;

@@ -61,7 +61,7 @@ export class ReservationService {
       tap((response) => {
         setTimeout(() => {
           this.router.navigate(['/reservations']);
-        }, 2000);
+        }, 1500);
       })
     );
   }

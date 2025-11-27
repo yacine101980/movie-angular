@@ -1,4 +1,3 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../auth/auth.service';
@@ -59,13 +58,13 @@ export class FilmComponent implements OnInit {
     this.selectedFilmId = this.selectedFilmId === id ? null : id;
   }
 
-  navigateToDetail(id: number | undefined): void {
+  navigateToDetail(id: string | number | undefined): void {
     if (id != null) {
       this.router.navigate(['/detail', id]);
     }
   }
 
-  navigateToReservation(id: number | undefined): void {
+  navigateToReservation(id: string | number | undefined): void {
     if (id != null) {
       this.router.navigate(['/reservation', id]);
     }
@@ -109,8 +108,7 @@ export class FilmComponent implements OnInit {
     });
   }
 
-  toggleFavorite(film: Film, event?: Event): void {
-    if (event) event.stopPropagation();
+  toggleFavorite(film: Film): void {
     if (!film?.id) return;
 
     if (this.favorites.has(film.id)) {
