@@ -4,10 +4,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../../../auth/auth.service';
 import { Film } from '../../../models/film.model';
-import { Observable, throwError } from 'rxjs';
+import { Observable, tap, throwError } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ReservationService {
   form: FormGroup;
@@ -16,13 +16,18 @@ export class ReservationService {
   private filmsUrl = 'http://localhost:3000/movies';
   private reservationsUrl = 'http://localhost:3000/reservations';
 
-  constructor(private fb: FormBuilder, private http: HttpClient, private authService: AuthService) {
+  constructor(
+    private fb: FormBuilder,
+    private http: HttpClient,
+    private authService: AuthService,
+    private router: Router
+  ) {
     this.form = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(2)]],
       email: ['', [Validators.required, Validators.email]],
       seats: [1, [Validators.required, Validators.min(1)]],
       date: ['', Validators.required],
-      phone: ['']
+      phone: [''],
     });
   }
 
@@ -35,9 +40,8 @@ export class ReservationService {
   }
 
   submitReservation(film: Film, formValue: any): Observable<any> {
-
     if (!film) {
-      return throwError(() => new Error("Film manquant"));
+      return throwError(() => new Error('Film manquant'));
     }
 
     const payload = {
@@ -50,10 +54,15 @@ export class ReservationService {
       seats: formValue.seats,
       date: formValue.date,
       phone: formValue.phone || null,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
     };
 
-    return this.http.post(this.reservationsUrl, payload);
+    return this.http.post(this.reservationsUrl, payload).pipe(
+      tap((response) => {
+        setTimeout(() => {
+          this.router.navigate(['/reservations']);
+        }, 2000);
+      })
+    );
   }
-
 }
